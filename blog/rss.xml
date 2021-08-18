@@ -4,14 +4,14 @@
         <title>Xamarin Community Guide Blog</title>
         <link>https://xamarincommunityguide.github.io/blog</link>
         <description>Xamarin Community Guide Blog</description>
-        <lastBuildDate>Thu, 30 May 2019 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 16 Aug 2020 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[Welcome]]></title>
             <link>https://xamarincommunityguide.github.io/blog/welcome</link>
             <guid>welcome</guid>
-            <pubDate>Thu, 30 May 2019 00:00:00 GMT</pubDate>
+            <pubDate>Sun, 16 Aug 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[Demo]]></description>
         </item>
     </channel>
