@@ -1,60 +1,22 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @format
- */
-
-const OFF = 0;
-const WARNING = 1;
-const ERROR = 2;
-
 module.exports = {
   root: true,
-  env: {
-    browser: true,
-    commonjs: true,
-    jest: true,
-    node: true,
-  },
-  parser: '@babel/eslint-parser',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    allowImportExportEverywhere: true,
+    project: './tsconfig.json'
   },
-  extends: ['airbnb', 'prettier', 'prettier/react'],
-  plugins: ['react-hooks', 'header'],
+  plugins: [
+    '@typescript-eslint',
+  ],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'airbnb-typescript'
+  ],
   rules: {
-    // Ignore certain webpack alias because it can't be resolved
-    'import/no-unresolved': [
-      ERROR,
-      {ignore: ['^@theme', '^@docusaurus', '^@generated']},
-    ],
-    'import/extensions': OFF,
-    'header/header': [
-      ERROR,
-      'block',
-
-      [
-        '*',
-        ' * Copyright (c) Facebook, Inc. and its affiliates.',
-        ' *',
-        ' * This source code is licensed under the MIT license found in the',
-        ' * LICENSE file in the root directory of this source tree.',
-        ' *',
-        // Unfortunately eslint-plugin-header doesn't support optional lines.
-        // If you want to enforce your website JS files to have @flow or @format,
-        // modify these lines accordingly.
-        {
-          pattern: '.* @format',
-        },
-        ' ',
-      ],
-    ],
-    'react/jsx-closing-bracket-location': OFF, // Conflicts with Prettier.
-    'react/jsx-filename-extension': OFF,
-    'react-hooks/rules-of-hooks': ERROR,
-    'react/prop-types': OFF, // PropTypes aren't used much these days.
-  },
+    "@typescript-eslint/no-use-before-define": "warn",
+    "max-len": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/prop-types": "off",
+    "react/require-default-props": "off",
+  }
 };

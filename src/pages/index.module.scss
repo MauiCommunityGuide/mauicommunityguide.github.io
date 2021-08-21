@@ -1,0 +1,12 @@
+html[data-theme='dark'] .header {
+  // Color Below top navigation
+  background-color: #17191a;
+}
+
+.header {
+  background-color: var(--ifm-color-white);
+}
+
+.main {
+  background-color: var(--grey-lighter);
+}

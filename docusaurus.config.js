@@ -1,44 +1,122 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @format
- */
+// @ts-check
+
+const isDeployPreview = process.env.CONTEXT === 'deploy-preview';
+const isProductionDeployment = process.env.CONTEXT === 'production';
+
+const localesWithLowRatioOfTranslation = [
+  'ar-SA',
+  'fil-PH',
+  'gl-ES',
+  'hi-IN',
+  'ja-JP',
+  'ko-KR',
+  'pt-PT',
+  'sr-SP',
+  'tg-TJ',
+  'ro-RO',
+  'zh-CN',
+];
+/** @type {import('@docusaurus/types').DocusaurusConfig['i18n']} */
+const i18nConfig = {
+  defaultLocale: 'en',
+  locales: isDeployPreview ? ['en'] : ['en', 'es-ES'],
+  localeConfigs: {
+    ar: {
+      direction: 'rtl',
+    },
+  },
+};
+
+const pkgJson = require('./package.json');
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Xamarin Community Guide',
-  tagline: 'Community Guide to creating beautiful interfaces in Xamarin.Forms',
+  tagline: 'Community guide to creating beautiful applications in Xamarin',
+  organizationName: 'XamarinCommunityGuide',
+  projectName: 'xamarincommunityguide.github.io',
   url: 'https://xamarincommunityguide.github.io',
   baseUrl: '/',
+  trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
-  organizationName: 'XamarinCommunityGuide', // Usually your GitHub org/user name.
-  projectName: 'xamarincommunityguide.github.io', // Usually your repo name.
-  trailingSlash: false,
+  favicon: 'img/favicon/favicon.ico',
+  // i18n: i18nConfig,
+  plugins: [
+    'docusaurus-plugin-sass',
+    isProductionDeployment && ['docusaurus-plugin-sentry', { DSN: 'e494731288eb4948852561c19000c423' }],
+  ].filter(Boolean),
+  webpack: {
+    jsLoader: (isServer) => ({
+      loader: require.resolve('esbuild-loader'),
+      options: {
+        loader: 'tsx',
+        format: isServer ? 'cjs' : undefined,
+        target: isServer ? 'node12' : 'es2017',
+      },
+    }),
+  },
+  customFields: {
+    description: 'Community guide to creating beautiful applications in Xamarin',
+  },
   themeConfig: {
+    announcementBar: {
+      id: 'announcementBar',
+      content:
+        'If you like Xamarin Community Guide, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/XamarinCommunityGuide/xamarincommunityguide.github.io">GitHub</a>! ⭐',
+    },
+    algolia: {
+      apiKey: '082aaca59b344caf6d08e21b780cc0c4',
+      indexName: 'xamarincommunityguide',
+      contextualSearch: true,
+    },
+    gtag: isProductionDeployment
+      ? {
+          // You can also use your "G-" Measurement ID here.
+          trackingID: 'G-3ZJ7Q4HRH7',
+        }
+      : undefined,
     navbar: {
-      title: 'Xamarin Commnunity Guide',
+      title: `Xamarin Community Guide`,
       logo: {
-        alt: 'Xamarin Commnunity Guide Logo',
-        src: 'img/XamarinCommunityGuide_Brand.svg',
+        alt: 'Xamarin Community Guide Logo',
+        src: 'img/xamarin_community_guide_brand.svg',
       },
       items: [
         {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
+          type: 'doc',
+          docId: 'what-is-xamarin-community-guide',
           position: 'left',
+          label: 'Docs',
         },
-        {to: 'blog', label: 'Blog', position: 'left'},
-        // Please keep GitHub link to the right for consistency.
+        { to: '/blog', label: 'Blog', position: 'left' },
+        { to: '/help', label: 'Help', position: 'left' },
+
+        {
+          href: 'https://opencollective.com/xamarin-community-guide',
+          label: 'Sponsor us',
+          position: 'right',
+        },
+        {
+          href: '/contributors',
+          label: 'Contributors',
+          position: 'right',
+        },
+        {
+          type: 'localeDropdown',
+          position: 'right',
+          dropdownItemsAfter: [
+            {
+              href: 'https://crowdin.com/project/xamarincommunityguide',
+              label: 'Help Us Translate',
+            },
+          ],
+        },
         {
           href: 'https://github.com/XamarinCommunityGuide/xamarincommunityguide.github.io',
-          label: 'GitHub',
           position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
@@ -50,20 +128,24 @@ module.exports = {
           items: [
             {
               label: 'Getting Started',
-              to: 'docs/',
-            }
+              to: '/docs/what-is-xamarin-community-guide',
+            },
           ],
         },
         {
           title: 'Community',
           items: [
             {
-              label: 'Comunidad Xamarin / .NET MAUI en Español',
-              href: 'https://www.facebook.com/groups/xamarindiplomadoitc',
+              label: 'Stack Overflow',
+              href: 'https://stackoverflow.com/questions/tagged/xamarincommunityguide',
             },
             {
-              label: 'Xamarin Latino',
-              href: 'https://www.facebook.com/groups/xamarin.latino',
+              label: 'Discord',
+              href: 'https://discord.gg/yk5MzThrV4',
+            },
+            {
+              label: 'Twitter',
+              href: 'https://twitter.com/search?q=%23XamarinCommunityGuide&src=typed_query',
             },
           ],
         },
@@ -72,22 +154,37 @@ module.exports = {
           items: [
             {
               label: 'Blog',
-              to: 'blog',
+              to: '/blog',
             },
             {
               label: 'GitHub',
               href: 'https://github.com/XamarinCommunityGuide/xamarincommunityguide.github.io',
             },
+            {
+              label: 'Twitter',
+              href: 'https://twitter.com/xamarincommunityguide',
+            },
+            {
+              html: `
+                <a href="https://docusaurus.io" target="_blank" rel="noreferrer noopener" aria-label="Made with Docusaurus">
+                  <img src="/img/Badges/docusaurus_badge.svg" alt="Made with Docusaurus" />
+                </a>
+              `,
+            },
           ],
         },
       ],
-      logo: {
-        alt: 'Xamarin Community Guide Logo',
-        src: 'img/oss_logo.png',
-        href: 'https://xamarincommunityguide.github.io',
-      },
-      // Please do not remove the credits, help to publicize Docusaurus :)
-      copyright: `Copyright © ${new Date().getFullYear()} Xamarin Community Guide. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Xamarin Community Guide`,
+    },
+    hideableSidebar: true,
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
+    prism: {
+      theme: require('prism-react-renderer/themes/dracula'),
+      darkTheme: require('prism-react-renderer/themes/dracula'),
     },
   },
   presets: [
@@ -96,18 +193,36 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/XamarinCommunityGuide/xamarincommunityguide.github.io',
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
+          sidebarCollapsible: true,
+          remarkPlugins: [[require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }]],
+          editUrl: ({ locale, docPath }) => {
+            if (locale !== 'en') {
+              return `https://crowdin.com/project/xamarincommunityguide/${locale}`;
+            }
+            return `https://github.com/XamarinCommunityGuide/xamarincommunityguide.github.io/edit/master/docs/${docPath}`;
+          },
         },
         blog: {
+          blogTitle: 'Xamarin Community Guide',
+          blogDescription: 'Community guide to creating beautiful applications in Xamarin',
           showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/XamarinCommunityGuide/xamarincommunityguide.github.io',
+          postsPerPage: 3,
+          feedOptions: {
+            type: 'all',
+          },
+          blogSidebarCount: 'ALL',
+          blogSidebarTitle: 'All our posts',
+          editUrl: ({ locale, blogDirPath, blogPath }) => {
+            if (locale !== 'en') {
+              return `https://crowdin.com/project/xamarincommunityguide/${locale}`;
+            }
+            return `https://github.com/XamarinCommunityGuide/xamarincommunityguide.github.io/edit/master/${blogDirPath}/${blogPath}`;
+          },
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
       },
     ],
