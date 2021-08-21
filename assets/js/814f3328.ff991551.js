@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkxamarin_community_guide=self.webpackChunkxamarin_community_guide||[]).push([[535],{5641:function(e){e.exports=JSON.parse('{"title":"All our posts","items":[{"title":"Welcome","permalink":"/blog/welcome"}]}')}}]);
