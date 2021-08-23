@@ -201,7 +201,7 @@ module.exports = {
             if (locale !== 'en') {
               return `https://crowdin.com/project/xamarincommunityguide/${locale}`;
             }
-            return `https://github.com/XamarinCommunityGuide/xamarincommunityguide.github.io/edit/master/docs/${docPath}`;
+            return `https://github.com/XamarinCommunityGuide/xamarincommunityguide.github.io/edit/XamarinCommunityGuide-Core/docs/${docPath}`;
           },
         },
         blog: {
@@ -218,7 +218,7 @@ module.exports = {
             if (locale !== 'en') {
               return `https://crowdin.com/project/xamarincommunityguide/${locale}`;
             }
-            return `https://github.com/XamarinCommunityGuide/xamarincommunityguide.github.io/edit/master/${blogDirPath}/${blogPath}`;
+            return `https://github.com/XamarinCommunityGuide/xamarincommunityguide.github.io/edit/XamarinCommunityGuide-Core/${blogDirPath}/${blogPath}`;
           },
         },
         theme: {
