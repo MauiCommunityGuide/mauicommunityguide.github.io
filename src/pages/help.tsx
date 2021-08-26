@@ -73,7 +73,7 @@ const SUPPORT_LINKS = (lang: string) => [
     content: (
       <Translate
         values={{
-          follow: <Follow username="DanielMonetelli" options={{ showCount: false, dnt: true, lang }} />,
+          follow: <Follow username="xamarincguide" options={{ showCount: false, dnt: true, lang }} />,
         }}
       >
         {'You can follow and contact us on {follow}'}

@@ -162,7 +162,7 @@ module.exports = {
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/xamarincommunityguide',
+              href: 'https://twitter.com/xamarincguide',
             },
             {
               html: `

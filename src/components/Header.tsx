@@ -37,7 +37,7 @@ const Header = (): React.ReactElement => {
       </div>
       <div className={styles['header--absolute-links']}>
         <div>
-          <Follow username="DanielMonetelli" options={{ size: 'large', dnt: true, lang: i18n.currentLocale }} />
+          <Follow username="xamarincguide" options={{ size: 'large', dnt: true, lang: i18n.currentLocale }} />
         </div>
       </div>
     </div>
