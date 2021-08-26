@@ -42,6 +42,7 @@ jobs:
         env:
           USE_SSH: true
           GIT_USER: git
+          DEPLOYMENT_BRANCH: master
           CONTEXT: production
         run: |
           git config --global user.email "danielmonetelli@hotmail.com"
