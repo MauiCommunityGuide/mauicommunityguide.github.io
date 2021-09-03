@@ -205,7 +205,7 @@ module.exports = {
           },
         },
         blog: {
-          blogTitle: 'Xamarin Community Guide',
+          blogTitle: 'Blog',
           blogDescription: 'Community guide to creating beautiful applications in Xamarin',
           showReadingTime: true,
           postsPerPage: 3,
