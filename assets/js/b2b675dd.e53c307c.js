@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkxamarin_community_guide=self.webpackChunkxamarin_community_guide||[]).push([[533],{8017:function(e){e.exports=JSON.parse('{"permalink":"/blog","page":1,"postsPerPage":5,"totalPages":1,"totalCount":1,"previousPage":null,"nextPage":null,"blogDescription":"Xamarin Community Guide Blog","blogTitle":"Community Blog"}')}}]);
