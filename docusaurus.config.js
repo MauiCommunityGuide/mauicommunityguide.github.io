@@ -211,6 +211,7 @@ module.exports = {
           postsPerPage: 5,
           feedOptions: {
             type: 'all',
+            copyright: `Copyright © ${new Date().getFullYear()} Xamarin Community Guide`,
           },
           blogSidebarCount: 'ALL',
           blogSidebarTitle: 'All our posts',
