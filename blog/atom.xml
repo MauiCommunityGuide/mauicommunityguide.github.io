@@ -7,6 +7,7 @@
     <link rel="alternate" href="https://xamarincommunityguide.github.io/blog"/>
     <subtitle>Xamarin Community Guide Blog</subtitle>
     <icon>https://xamarincommunityguide.github.io/img/favicon/favicon.ico</icon>
+    <rights>Copyright © 2021 Xamarin Community Guide</rights>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>welcome</id>

@@ -7,6 +7,7 @@
         <lastBuildDate>Fri, 20 Aug 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <copyright>Copyright © 2021 Xamarin Community Guide</copyright>
         <item>
             <title><![CDATA[Welcome]]></title>
             <link>https://xamarincommunityguide.github.io/blog/welcome</link>
