@@ -208,7 +208,7 @@ module.exports = {
           blogTitle: 'Community Blog',
           blogDescription: 'Xamarin Community Guide Blog',
           showReadingTime: true,
-          postsPerPage: 3,
+          postsPerPage: 5,
           feedOptions: {
             type: 'all',
           },
