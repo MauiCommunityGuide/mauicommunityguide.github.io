@@ -89,7 +89,7 @@ module.exports = {
           position: 'left',
           label: 'Docs',
         },
-        { to: '/blog', label: 'Blog', position: 'left' },
+        { to: '/blog', label: 'Community Blog', position: 'left' },
         { to: '/help', label: 'Help', position: 'left' },
 
         {
@@ -153,7 +153,7 @@ module.exports = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
+              label: 'Community Blog',
               to: '/blog',
             },
             {
@@ -205,8 +205,8 @@ module.exports = {
           },
         },
         blog: {
-          blogTitle: 'Blog',
-          blogDescription: 'Community guide to creating beautiful applications in Xamarin',
+          blogTitle: 'Community Blog',
+          blogDescription: 'Xamarin Community Guide Blog',
           showReadingTime: true,
           postsPerPage: 3,
           feedOptions: {
