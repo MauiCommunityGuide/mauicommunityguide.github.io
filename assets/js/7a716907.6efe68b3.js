@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkxamarin_community_guide=self.webpackChunkxamarin_community_guide||[]).push([[618],{6455:function(t){t.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/monettelli-uikit","name":"MonettelliUIKIT","count":1,"permalink":"/blog/tags/monettelli-uikit"}')}}]);
