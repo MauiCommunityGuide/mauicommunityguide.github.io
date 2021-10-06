@@ -1,0 +1,735 @@
+---
+slug: harmonic-interfaces-with-monettelliuikit-in-xamarin-forms-vol-1
+title: Harmonic Interfaces with MonettelliUIKIT in Xamarin.Forms Vol 1
+authors: [danielmonettelli]
+tags: [English, Xamarin.Forms, MonettelliUIKIT, XAML]
+---
+
+import Link from '@docusaurus/Link';
+import ImageZoom from '/src/components/imageZoom/fancybox.js';
+import ReactPlayer from 'react-player';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import BrowserWindow from '/src/components/BrowserWindow/browserWindow.tsx';
+import TOCInline from '@theme/TOCInline';
+
+<ImageZoom>
+  <a
+    href="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/harmonic_interfaces_with_monettelliuikit.png"
+    data-fancybox
+    data-caption="Harmonic Interfaces with MonettelliUIKIT in Xamarin.Forms Vol 1">
+    <img src="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/harmonic_interfaces_with_monettelliuikit.png" />
+  </a>
+</ImageZoom>
+
+<p style={{ fontSize: '20px', margin: '12px 0px 20px', fontWeight: 'bold', fontStyle: 'italic' }}>
+When creating interfaces in Xamarin.Forms, most developers (and myself included) use
+the physical device or the emulator to give the appearance of the design that is 
+being replicated, and what about the rest of the devices that exist around the world?.
+</p>
+
+
+<!-- truncate -->
+
+From this question this publication is born, in my beginnings as a developer of Xamarin Native and Xamarin.Forms I focused on the C # language, as I was learning, I realized that the appearance of interfaces are also a fundamental complement in applications, therefore, I continue studying various UI/UX courses, and therefore, my comfort zone I extend it more and more. To date, I love creating beautiful applications, harmonizing each device (phones, tablets, desktops, etc.).
+
+## ¿What are Harmonic interfaces?
+
+Harmonic Interfaces is the balance of a group of controls with the dimensions of the devices that exist today.
+
+**Xamarin.Forms** and its powerful **Hot Reload**, allow you to visualize in real time the process of the interfaces in XAML and C #, with this great tool, I did my practices to perfect my interfaces, and to present my results in this publication.
+
+<ImageZoom>
+  <a
+    href="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/harmonic_interface_in_action.png"
+    data-fancybox
+    data-caption="Harmonic Interface in action">
+    <img src="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/harmonic_interface_in_action.png" />
+  </a>
+</ImageZoom>
+<p style={{ textAlign: 'center', fontSize: '.8rem', 
+margin: '6px 0px 20px', fontWeight: 'bold' }}>
+Harmonic Interface in action
+</p>
+
+## The harmonic layout
+
+Xamarin.Forms has different layouts, each with a purpose, of all of them, the one indicated for me is [GridLayout](https://askxammy.com/working-with-gridlayout-in-xamarin-forms/), because with **RowDefinitions** and **ColumnDefinitions** I can cleanly manage my controls, however what stands out is proportional mode, and that is where we will focus on this post.
+
+<ImageZoom>
+  <a
+    href="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/gridlayout_structure.png"
+    data-fancybox
+    data-caption="GridLayout Structure">
+    <img src="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/gridlayout_structure.png" />
+  </a>
+</ImageZoom>
+<p style={{ textAlign: 'center', fontSize: '.8rem', 
+margin: '6px 0px 20px', fontWeight: 'bold' }}>
+GridLayout Structure
+</p>
+
+## Harmonic proportions
+
+The **proportional mode** is in relation to the dimensions of the device and the content involved in the interface, that is, if a certain row and/or column proportion is added to a control, it is adapted to each device.
+
+<ImageZoom>
+  <a
+    href="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/harmonic_proportions_in_action.png"
+    data-fancybox
+    data-caption="Harmonic proportions in action">
+    <img src="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/harmonic_proportions_in_action.png" />
+  </a>
+</ImageZoom>
+<p style={{ textAlign: 'center', fontSize: '.8rem', 
+margin: '6px 0px 20px', fontWeight: 'bold' }}>
+Harmonic proportions in action
+</p>
+
+## ¿How to use proportions in GridLayout?
+
+For this, it is necessary to use a design tool**_(in my case Adobe XD)_**, adding semi-transparent blocks of different colors**_(both for rows and columns)_** to all the spaces of your design, in order to cover the positions that the controls, remember that each design has its difficulty.
+
+<ImageZoom>
+  <a
+    href="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/using_proportions_in_adobe_xd.png"
+    data-fancybox
+    data-caption="Using proportions in Adobe XD">
+    <img src="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/using_proportions_in_adobe_xd.png" />
+  </a>
+</ImageZoom>
+<p style={{ textAlign: 'center', fontSize: '.8rem', 
+margin: '6px 0px 20px', fontWeight: 'bold' }}>
+Using proportions in Adobe XD
+</p>
+
+The [Ing. Juan Carlos Ricalde Poveda](https://github.com/jucaripo) **_(UI/UX Expert)_**, recommends that the artboard(Adobe XD or another tool) be done with the smallest screen size(preferably Android Phones), this helps extend and not reduce the space taken up by the controls.
+
+<ImageZoom>
+  <a
+    href="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/device_sizes_use_case.png"
+    data-fancybox
+    data-caption="Device sizes use case">
+    <img src="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/device_sizes_use_case.png" />
+  </a>
+</ImageZoom>
+<p style={{ textAlign: 'center', fontSize: '.8rem', 
+margin: '6px 0px 20px', fontWeight: 'bold' }}>
+Device sizes use case
+</p>
+
+In the **"Prototype"** section, we create the flow of the designs(if there are two or more interfaces).
+
+<ImageZoom>
+  <a
+    href="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/adobe_xd_prototype_section.png"
+    data-fancybox
+    data-caption="Adobe XD 'Prototype' section">
+    <img src="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/adobe_xd_prototype_section.png" />
+  </a>
+</ImageZoom>
+<p style={{ textAlign: 'center', fontSize: '.8rem', 
+margin: '6px 0px 20px', fontWeight: 'bold' }}>
+Adobe XD 'Prototype' section
+</p>
+
+In the **"Share"** section, in the settings part, select the **"Development"** mode, once the link is created, open in the default browser.
+
+:::note
+
+To have a harmonic ratio, divide the row and/or column distance of a control by the total distance of the design itself.
+
+:::
+
+<ImageZoom>
+  <a
+    href="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/adobe_xd_share_section.png"
+    data-fancybox
+    data-caption="Adobe XD 'Share' section">
+    <img src="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/adobe_xd_share_section.png" />
+  </a>
+</ImageZoom>
+<p style={{ textAlign: 'center', fontSize: '.8rem', 
+margin: '6px 0px 20px', fontWeight: 'bold' }}>
+Adobe XD 'Share' section
+</p>
+
+<ImageZoom>
+  <a
+    href="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/calculation_of_proportions_in_the_link_made_for_adobe_xd.png"
+    data-fancybox
+    data-caption="Calculation of proportions in the link made for Adobe XD">
+    <img src="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/calculation_of_proportions_in_the_link_made_for_adobe_xd.png" />
+  </a>
+</ImageZoom>
+<p style={{ textAlign: 'center', fontSize: '.8rem', 
+margin: '6px 0px 20px', fontWeight: 'bold' }}>
+Calculation of proportions in the link made for Adobe XD
+</p>
+
+In the Xamarin.Forms XAML, add **Grid** to encapsulate the different controls that your interface will have, together with the harmonic proportions that have been calculated, then with **Grid.Colum** and **Grid.Row**, we position the controls, if it occupies more than one space you can use **Grid.ColumSpan** or **Grid.RowSpan**, AND WUALÁ !, you already have a harmonic interface.
+
+:::note
+
+Some controls will necessarily use **_"Auto"_** since their dimensions do not have to be changed, ahem (Label, Entry, etc).
+
+:::
+
+```xml
+<Grid>
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height=".175*" />
+        <RowDefinition Height=".175*" />
+        <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".075*" />
+        <ColumnDefinition Width=".85*" />
+        <ColumnDefinition Width=".075*" />
+    </Grid.ColumnDefinitions>
+
+     <Image
+        Grid.Row="0"
+        Grid.RowSpan="2"
+        Grid.Column="0"
+        Grid.ColumnSpan="3"
+        Aspect="AspectFill"
+        Source="ItalianFood.png" />
+
+     <Label
+        Grid.Row="2"
+        Grid.Column="0"
+        Grid.ColumnSpan="2"
+        Text="Hello Monettelli UIKIT"
+        Style="{StaticResource TxtHeadLine4_1}" />
+
+</Grid>
+```
+
+**Margin** and **Padding** you will rarely see involved, because it generates **"Absolute Distances"**, the following code is a clear example.
+
+```xml
+<Grid>
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height=".35*" />
+        <RowDefinition Height=".65*" />
+    </Grid.RowDefinitions>
+
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".075*" />
+        <ColumnDefinition Width=".85*" />
+        <ColumnDefinition Width=".075*" />
+    </Grid.ColumnDefinitions>
+
+     <Image
+        Grid.Row="0"
+        Grid.Column="1"
+        Aspect="AspectFill"
+        Source="ItalianFood.png" />
+
+</Grid>
+```
+
+## MonettelliUIKIT, Shell and MVVM on stage
+
+[MonettelliUIKIT](https://marketplace.visualstudio.com/items?itemName=DanielMonettelli.monettelli-forms-templates) implements the Clean UI Style Architecture, which reduces the time of developing beautiful interfaces and maintaining them, then I explain the process step by step.
+
+<ImageZoom>
+  <a
+    href="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/monettelliuikit.png"
+    data-fancybox
+    data-caption="MonettelliUIKIT">
+    <img src="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/monettelliuikit.png" />
+  </a>
+</ImageZoom>
+<p style={{ textAlign: 'center', fontSize: '.8rem', 
+margin: '6px 0px 20px', fontWeight: 'bold' }}>
+MonettelliUIKIT
+</p>
+
+### a) Use of embedded Fonts and SVG's
+
+In my publication [Creating a clean Style Library for Xamarin.Forms](https://danielmonettelli.github.io/posts/creating-a-clean-style-library-for-xamarin-forms/) I write about how to customize FontIcons and add fonts themselves, now with [Embedded Fonts](https://devblogs.microsoft.com/xamarin/embedded-fonts-xamarin-forms/), it simplifies the use of such fonts, the next versions of **MonettelliUIKIT** will have this feature, considerably reducing the code and at the same time making us productive.
+
+**_"Embedded Fonts" in AssemblyInfo.cs:_**
+
+```csharp
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+
+
+#region FontIcons Embedded
+[assembly: ExportFont("monettelliuikitfonticons.ttf", Alias = "MonettelliFontIcons")]
+#endregion
+
+#region FontFamily Embedded
+[assembly: ExportFont("SourceSansPro-Bold.ttf", Alias = "SourceSansPro_Bold")]
+[assembly: ExportFont("OpenSans-ExtraBold.ttf", Alias = "OpenSans_ExtraBold")]
+[assembly: ExportFont("OpenSans-Bold.ttf", Alias = "OpenSans_Bold")]
+[assembly: ExportFont("OpenSans-SemiBold.ttf", Alias = "OpenSans_SemiBold")]
+[assembly: ExportFont("OpenSans-Regular.ttf", Alias = "OpenSans_Regular")]
+#endregion
+```
+
+On the other hand, **SVG's are already embedded**, thanks to the Nuget package called [Xamarin.FFImageLoading.Svg.Forms](https://www.xamboy.com/2018/03/29/sharing-svg-icons-across-platforms-in-xamarin-forms/).
+
+```xml
+<ffSvg:SvgCachedImage
+               Grid.Row="0"
+               BackgroundColor="#F5CEB8"
+               Source="resource://XF_Demo.SVGImages.svg_bg_food.svg" />
+```
+
+### b) MVVM Pattern
+
+In the following image we can see the flow of the **MVVM Pattern**.
+
+<ImageZoom>
+  <a
+    href="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/mvvm_pattern.png"
+    data-fancybox
+    data-caption="MVVM Pattern by Gill Cleeren">
+    <img src="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/mvvm_pattern.png" />
+  </a>
+</ImageZoom>
+<p style={{ textAlign: 'center', fontSize: '.8rem', 
+margin: '6px 0px 20px', fontWeight: 'bold' }}>
+MVVM Pattern by Gill Cleeren
+</p>
+
+1.- The **"Models"** folder is part of the business logic, the models are made up of **Full Property** and inherit **INotifyPropertyChanged**, the other class houses the data repository.
+
+**_Model Structure:_**
+
+```csharp
+public class Exercise : INotifyPropertyChanged
+{
+
+        private Guid _id_Exercise;
+        private string _name_Exercise;
+
+        public Guid Id_Exercise
+        {
+            get => _id_Exercise;
+            set
+            {
+                _id_Exercise = value;
+                RaisePropertyChanged(nameof(Id_Exercise));
+            }
+         }
+
+        public string Name_Exercise
+        {
+            get => _name_Exercise;
+            set
+            {
+                _name_Exercise = value;
+                RaisePropertyChanged(nameof(Name_Exercise));
+            }
+         }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void RaisePropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+}
+```
+
+**_Structure of the Model Repository:_**
+
+```csharp
+public static class ExerciseRepository
+{
+
+    static ExerciseRepository()
+    {
+        if (Exercises == null)
+        {
+            Exercises = new List<Exercise>
+            {
+                new Exercise
+                {
+                    Id_Exercise = Guid.Parse("{70822596-265D-49E3-8CCC-CD996093E601}"),
+                    Name_Exercise = "Diet Recommendation",
+                    Image_Exercise = "resource://XF__EmbeddedSVG.SVGImages.svg_hamburger.svg",
+                    Duration_Exercise = "15-55 MIN Course",
+                    Description_Exercise = "Learn how to Create Your Clients(or your)perfect diet and nutrition plan based on their goals, preferences and lifestyle"
+                }
+            };
+        }
+    }
+
+    public static List<Exercise> Exercises { get; set; }
+}
+```
+
+2.- The **"Services"** folder has two services, a **flexible navigation** class, and a **Data Services** class, each inheriting its respective **Interface**.
+
+**_Navigation Service:_**
+
+```csharp
+public class NavigationService : INavigationService
+{
+    private Dictionary<string, Type> pages { get; } = new Dictionary<string, Type>();
+
+    public Page MainPage => Application.Current.MainPage;
+
+    public void Configure(string key, Type pageType) => pages[key] = pageType;
+
+    public void GoBack() => MainPage.Navigation.PopAsync();
+
+    public void NavigateTo(string pageKey, object parameter = null)
+    {
+        if (pages.TryGetValue(pageKey, out Type pageType))
+        {
+            var page = (Page)Activator.CreateInstance(pageType);
+            page.SetNavigationArgs(parameter);
+            MainPage.Navigation.PushAsync(page);
+            (page.BindingContext as MyBaseViewModel).Initialize(parameter);
+        }
+        else
+        {
+            throw new ArgumentException($"This page doesn't exist: {pageKey}.", nameof(pageKey));
+        }
+    }
+
+}
+
+public static class NavigationExtensions
+{
+    private static ConditionalWeakTable<Page, object> arguments = new ConditionalWeakTable<Page, object>();
+
+    public static object GetNavigationArgs(this Page page)
+    {
+        object argument;
+        arguments.TryGetValue(page, out argument);
+        return argument;
+    }
+
+    public static void SetNavigationArgs(this Page page, object args)
+        => arguments.Add(page, args);
+}
+```
+
+**_Data Services:_**
+
+```csharp
+public class ExerciseDataService : IModelDataService<Exercise>
+{
+    public void Add(Exercise model)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<Exercise> GetAll()
+    {
+        return ExerciseRepository.Exercises;
+    }
+
+    public void Remove(Exercise model)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Update(Exercise model)
+    {
+        throw new NotImplementedException();
+    }
+}
+```
+
+3.- As a **Singleton**, the **Services** are managed throughout the project**_(mainly in the ViewModels)_**.
+
+**_Singleton in App.xaml.cs:_**
+
+```csharp
+public partial class App : Application
+{
+       public static ExerciseDataService ExerciseDataService { get; } = new ExerciseDataService();
+
+       public static SessionDataService SessionDataService { get; } = new SessionDataService();
+
+       public static NavigationService NavigationService { get; } = new NavigationService();
+
+       public App()
+       {
+           InitializeComponent();
+
+           NavigationService.Configure(ViewNames.ExercisePage, typeof(ExercisePage));
+           NavigationService.Configure(ViewNames.ExerciseDetailPage, typeof(ExerciseDetailPage));
+           MainPage = new AppShell();
+           //MainPage = new NavigationPage(new ExercisePage());
+       }
+
+       protected override void OnStart()
+       {
+
+       }
+
+       protected override void OnSleep()
+       {
+
+       }
+
+       protected override void OnResume()
+       {
+
+       }
+}
+```
+
+4.- The **"Helpers"** folder, add an Enum Type called **"ThemeType"**, where you have the different **Themes**, the **ThemeHelper** class inherits said Enum, it should be noted that its use is through the method of a command that will be created in the **ViewModel**.
+
+**_ThemeType.cs:_**
+
+```csharp
+public enum ThemeType
+{
+    Light,
+    Dark
+}
+```
+
+**_ThemeHelper.cs:_**
+
+```csharp
+public static class ThemeHelper
+{
+    public static void ChangeTheme(ThemeType themeType)
+    {
+        if (Application.Current.Resources != null)
+            Application.Current.Resources.Clear();
+
+        switch (themeType)
+        {
+            case ThemeType.Light:
+                Application.Current.Resources = new LightTheme();
+                break;
+            case ThemeType.Dark:
+                Application.Current.Resources = new DarkTheme();
+                break;
+        }
+    }
+}
+```
+
+5.- The **"ViewModels"** folder has a **Base Class** for each **ViewModel**.
+
+**_MyBaseViewModel.cs:_**
+
+```csharp
+public class MyBaseViewModel : BaseViewModel
+{
+    public virtual void Initialize(object parameter)
+    {
+
+    }
+}
+
+```
+
+**_ViewModel Structure:_**
+
+```csharp
+public class ExerciseViewModel : MyBaseViewModel
+{
+    public ThemeType SelectedTheme;
+
+    public ICommand ExerciseSelectedCommand { get; }
+
+    public ICommand ThemeSelectedCommand { get; }
+
+    private ObservableRangeCollection<Exercise> _exercises;
+    public ObservableRangeCollection<Exercise> Exercises
+    {
+        get => _exercises;
+        set
+        {
+            _exercises = value;
+            OnPropertyChanged(nameof(Exercises));
+        }
+    }
+
+    private Exercise _selectedExercise;
+    public Exercise SelectedExercise
+    {
+        get { return _selectedExercise; }
+        set { SetProperty(ref _selectedExercise, value); }
+    }
+
+    public ExerciseViewModel()
+    {
+        Exercises = new ObservableRangeCollection<Exercise>(App.ExerciseDataService.GetAll());
+        ExerciseSelectedCommand = new Command(OnExerciseSelectedCommand);
+        ThemeSelectedCommand = new Command(OnThemeSelectedCommand);
+    }
+
+    private void OnThemeSelectedCommand()
+    {
+        if(SelectedTheme == ThemeType.Light)
+        {
+            SelectedTheme = ThemeType.Dark;
+        }
+        else
+        {
+            SelectedTheme = ThemeType.Light;
+        }
+        ThemeHelper.ChangeTheme(SelectedTheme);
+    }
+
+    private void OnExerciseSelectedCommand()
+    {
+        if (SelectedExercise != null)
+        {
+            App.NavigationService.NavigateTo(ViewNames.ExerciseDetailPage, SelectedExercise);
+            SelectedExercise = null;
+        }
+    }
+}
+```
+
+6.- The **"Utilities"** folder has two classes, a **ViewModelLocator** **_(useful for unit tests)_** that facilitates the replacement of the **ViewModel** in each **View**, and a **ViewNames** that names each **View**.
+
+**_ViewModelLocator Structure:_**
+
+```csharp
+public static class ViewModelLocator
+{
+   public static ExerciseViewModel ExerciseViewModel { get; set; }
+       = new ExerciseViewModel();
+
+   public static ExerciseDetailViewModel ExerciseDetailViewModel { get; set; }
+       = new ExerciseDetailViewModel();
+}
+```
+
+**_ViewNames.cs:_**
+
+```csharp
+public class ViewNames
+{
+    public const string ExercisePage = "ExercisePage";
+
+    public const string ExerciseDetailPage = "ExerciseDetailPage";
+}
+```
+
+7.- In the **C# code-behind file** of the **View**, through the **BindingContext** property, we link the **ViewModelLocator**.
+
+**_ViewModelLocator in the C# code-behind file:_**
+
+```csharp
+public partial class ExercisePage : ContentPage
+{
+    public ExercisePage()
+    {
+        InitializeComponent();
+
+        BindingContext = ViewModelLocator.ExerciseViewModel;
+    }
+}
+```
+
+### c) XAML Harmonic
+
+Now that you have a clear vision of what interface harmony is all about, let's apply what we have learned in the following design.
+
+<ImageZoom>
+  <a
+    href="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/exercise_app_concept.png"
+    data-fancybox
+    data-caption="Exercise App Concept by Shahidul Islam Shishir">
+    <img src="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/exercise_app_concept.png" />
+  </a>
+</ImageZoom>
+<p style={{ textAlign: 'center', fontSize: '.8rem', 
+margin: '6px 0px 20px', fontWeight: 'bold' }}>
+Exercise App Concept by Shahidul Islam Shishir
+</p>
+
+Making a feedback, we analyze the design(s) in Adobe XD, we add multi-colored blocks to the rows and columns, we prototype and create the link that will help to see the distances of these blocks, and then calculate the proportions of each design.
+
+<ImageZoom>
+  <a
+    href="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/harmonic_proportions_in_the_concept_of_exercise_application.png"
+    data-fancybox
+    data-caption="'Harmonic Proportions' in the Concept of Exercise Application">
+    <img src="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/harmonic_proportions_in_the_concept_of_exercise_application.png" />
+  </a>
+</ImageZoom>
+<p style={{ textAlign: 'center', fontSize: '.8rem', 
+margin: '6px 0px 20px', fontWeight: 'bold' }}>
+'Harmonic Proportions' in the Concept of Exercise Application
+</p>
+
+
+Using the **GridLayout**, we complement these proportions in **Row(Colum)Definitions**, and with the help of the design, we position the controls, then through **StaticResource/DynamicResource**, we incorporate the styles assigned in **Styles.xaml**.
+
+**_Complete Structure of a Style with OnIdiom:_**
+
+```xml
+<Style
+    x:Key="TxtHeadLine4_1"
+    TargetType="Label">
+    <Setter Property="TextColor" Value="{DynamicResource colSec}" />
+    <Setter Property="FontSize">
+        <OnIdiom
+            x:TypeArguments="x:Double"
+            Watch="{StaticResource TxtSizeCap_12}"
+            Phone="{StaticResource TxtSizeH4_34}"
+            Desktop="{StaticResource TxtSizeH3_48}"
+            Tablet="{StaticResource TxtSizeH3_48}"
+            TV="{StaticResource TxtSizeH3_48}" />
+    </Setter>
+    <Setter Property="FontFamily" Value="OpenSans_ExtraBold" />
+</Style>
+```
+
+### d) Shell in action
+
+[MonettelliUIKIT](https://monettelliuikit.github.io) comes with **Shell**, and with **AppShell.xaml** you can add **Views**, easily modify colors, labels, images, etc. It practically makes life easier for the developer.
+
+### e) Final Score
+
+If you have applied each step, the result will be similar to this one.
+
+<ImageZoom>
+  <a
+    href="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/harmony_of_interfaces_made_in_xamarin_forms.png"
+    data-fancybox
+    data-caption="Harmony of interfaces made in Xamarin.Forms">
+    <img src="https://raw.githubusercontent.com/MonettelliSoft/monettellisoft.github.io/XamarinCommunityGuide-Core/static/img/blog/harmonic_interfaces_with_monettelliuikit_in_xamarin_forms_vol_1/harmony_of_interfaces_made_in_xamarin_forms.png" />
+  </a>
+</ImageZoom>
+<p style={{ textAlign: 'center', fontSize: '.8rem', 
+margin: '6px 0px 20px', fontWeight: 'bold' }}>
+Harmony of interfaces made in Xamarin.Forms
+</p>
+
+## Conclusions
+
+The use of harmonic proportions is one of many methods to stylize interfaces, make them flexible, and above all, provide a good user experience on each device.
+
+**MonettelliUIKIT** is a great ally of the UI/UX in Xamarin.Forms and I hope it is also in the new **.NET MAUI**.
+
+## Publication in Spanish
+
+[Interfaces Armónicas con MonettelliUIKIT en Xamarin.Forms Vol 1](https://xamarinlatino.com/interfaces-arm%C3%B3nicas-con-monettelliuikit-en-xamarin-forms-vol-1-fb2dc05ef372)
+
+## Resources
+
+### Github Repository
+
+[danielmonettelli/XF_HarmonicInterfaces](https://github.com/danielmonettelli/XF_HarmonicInterfaces)
+
+### Sketch App Sources
+
+[Exercise App Concept Sketch Resource](https://www.sketchappsources.com/free-source/4067-excercise-app-concept-sketch-freebie-resource.html)
