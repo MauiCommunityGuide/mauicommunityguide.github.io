@@ -1662,6 +1662,11 @@
     resolve-pathname "^3.0.0"
     tslib "^2.2.0"
 
+"@fancyapps/ui@^4.0.0":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@fancyapps/ui/-/ui-4.0.5.tgz#16c0a9e5669600a8f01f0b51827d25e1d1c21273"
+  integrity sha512-5PUem7WH2EAipXMFXyxf7gf7s8w8K6y1FK1h8AAIftYKIir2+FyZetvpvFhP9hMX3fe8DgPCb2xt6Kjjxfj0uA==
+
 "@hapi/hoek@^9.0.0":
   version "9.2.0"
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.2.0.tgz#f3933a44e365864f4dad5db94158106d511e8131"
