@@ -1,12 +1,12 @@
-name: Xamarin Community Guide Website - CI/CD
+name: .NET MAUI Community Guide Website - CI/CD
 
 on:
   pull_request:
     branches: 
-      - XamarinCommunityGuide-Core
+      - MauiCommunityGuide-Core
   push:
     branches: 
-      - XamarinCommunityGuide-Core
+      - MauiCommunityGuide-Core
 
 jobs:
   pr-checks:
